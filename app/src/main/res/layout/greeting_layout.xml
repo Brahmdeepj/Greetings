@@ -11,7 +11,9 @@
         android:layout_height="fill_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/chooseGreetingLabelTextView">
+        android:layout_below="@+id/chooseGreetingLabelTextView"
+        android:id="@+id/greetingList"
+        android:gravity="center_horizontal">
 
     </LinearLayout>
 

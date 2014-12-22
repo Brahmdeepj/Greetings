@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 public class Greeting extends ActionBarActivity {
@@ -11,9 +13,28 @@ public class Greeting extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.greeting_layout);
+
+        //load the greetings into the layout
+        dynamicallySetGreetings();
     }
 
+    private void dynamicallySetGreetings()
+    {
+        //First load greetings list from db
+
+        //Populate layout with greetings
+        LinearLayout layout = (LinearLayout)findViewById(R.id.greetingList);
+        String [] greetingList = {"Hello", "Hi", "Sup!", "How are you?" };
+
+        for (String greeting : greetingList) {
+            TextView tv = new TextView(this);
+            tv.setText(greeting);
+
+            layout.addView(tv);
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
